@@ -1,0 +1,226 @@
+.kanban {
+    margin-top: 40px;
+
+    &__title {
+        margin-bottom: 30px;
+    }
+
+    &__btn {
+        padding: 10px 24px;
+        background: dodgerblue;
+        border: none;
+        border-radius: 8px;
+        color: #fff;
+    }
+
+    &__form {
+        position: fixed;
+        z-index: 9999;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 800px;
+        margin: 20px auto;
+        padding: 40px;
+        background: rgb(236, 236, 193);
+        border: 1px solid black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        transition: .4s;
+        display: flex;
+        visibility: hidden;
+        opacity: 0;
+
+        input {
+            width: 100%;
+            padding: 10px 20px;
+            border: 1px solid black;
+            border-radius: 10px;
+            outline: none;
+            font-size: 18px;
+        }
+    }
+
+    .close__form {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+    }
+
+    .close__icon {
+        font-size: 24px;
+        color: red;
+    }
+
+    &__create__btn {
+        padding: 10px 20px;
+        background: black;
+        color: white;
+        border: 1px solid black;
+        border-radius: 5px;
+        transition: .4s;
+
+        &:hover {
+            background: white;
+            color: black;
+        }
+    }
+
+    .show {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &__wrapper {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 12px;
+        align-items: flex-start;
+    }
+
+    &__block {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        flex: 1;
+        max-height: 600px;
+        overflow: auto;
+    }
+
+    &__box {
+        min-height: 300px;
+        border-radius: 12px 12px 0 0;
+        overflow: hidden;
+        background: #f1f1f1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__heading {
+        padding: 10px;
+        color: #fff;
+        text-align: center;
+    }
+
+    .delete__item {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        border: none;
+        background: transparent;
+    }
+
+    .delete__icon {
+        font-size: 20px;
+        color: red;
+    }
+
+    &__item {
+        position: relative;
+        min-height: 100px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 5px #0001;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        select {
+            padding: 3px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            outline: none;
+        }
+    }
+
+    &__commit {
+        font-size: 14px;
+        color: #999;
+        flex: 1;
+    }
+
+    &__add_btn {
+        width: 100%;
+
+        height: 40px;
+        border: none;
+        outline: none;
+
+    }
+
+    &__info {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        span {
+            font-size: 14px;
+        }
+    }
+
+    .ready {
+        border-left: 4px solid #5559D6;
+
+        .kanban__heading {
+            background: #5559D6;
+        }
+    }
+
+    .working {
+        border-left: 4px solid #F1AE53;
+
+        .kanban__heading {
+            background: #F1AE53;
+        }
+    }
+
+    .stuck {
+        border-left: 4px solid #D04F61;
+
+        .kanban__heading {
+            background: #D04F61;
+        }
+    }
+
+    .done {
+        border-left: 4px solid #5DC47D;
+
+        .kanban__heading {
+            background: #5DC47D;
+        }
+    }
+}
+
+
+@media (min-width:1200px) {
+    .kanban {
+        &__block {
+            &::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: #ddd;
+                border-radius: 8px;
+            }
+        }
+    }
+}
+
+@media (max-width:1000px) {
+    .kanban {
+        &__wrapper {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 12px;
+            align-items: flex-start;
+        }
+    }
+}
